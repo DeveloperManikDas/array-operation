@@ -56,6 +56,7 @@ public class learningArray {
     }
 
     public static void printSubarray(int arr[]) {
+        int totalSubarray =0; 
         int lenght = arr.length;
         for (int start = 0; start < lenght; start++) {
             for (int end = start; end < lenght; end++) {
@@ -63,8 +64,10 @@ public class learningArray {
                     System.out.print(arr[current] + " ");
                 }
                 System.out.println();
+                totalSubarray++; 
             }
         }
+        System.out.println("Total number od Subarray is: "+totalSubarray);
     }
 
     public static void main(String[] args) {

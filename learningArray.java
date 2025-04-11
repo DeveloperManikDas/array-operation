@@ -56,7 +56,7 @@ public class learningArray {
     }
 
     public static void printSubarray(int arr[]) {
-        int totalSubarray =0; 
+        int totalSubarray = 0;
         int lenght = arr.length;
         for (int start = 0; start < lenght; start++) {
             for (int end = start; end < lenght; end++) {
@@ -64,14 +64,27 @@ public class learningArray {
                     System.out.print(arr[current] + " ");
                 }
                 System.out.println();
-                totalSubarray++; 
+                totalSubarray++;
             }
         }
-        System.out.println("Total number od Subarray is: "+totalSubarray);
+        System.out.println("Total number of Subarray is: " + totalSubarray);
+    }
+
+    // We can check whether an array is sorted or not 
+    public static boolean isSorted(int arr[]) {
+        boolean isAscending = true;
+        boolean isDescending = true;
+
+        for (int i = 0; i < (arr.length - 1); i++) {
+            if (arr[i] > arr[i + 1])isAscending =  false;
+            if (arr[i] < arr[i + 1])isDescending = false;
+        
+        }
+        return isAscending || isDescending;
     }
 
     public static void main(String[] args) {
-        int arr[] = { 1, 2, 3, 4, 5 };
+        int arr[] = { 9,8,7,6,5,4 };
         // System.out.println(getLargest(arr));
         // System.out.println(binarySearch(arr, 100));
         // reverseArray(arr);
@@ -79,6 +92,7 @@ public class learningArray {
         // System.out.println((num));
         // }
         // makePair(arr);
-        printSubarray(arr);
+        // printSubarray(arr);
+        System.out.println(isSorted(arr));
     }
 }

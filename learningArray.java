@@ -49,8 +49,20 @@ public class learningArray {
 
     public static void makePair(int arr[]) {
         for (int i = 0; i < (arr.length - 1); i++) {
-            for (int j =i+1; j < arr.length; j++) {
+            for (int j = i + 1; j < arr.length; j++) {
                 System.out.print(" (" + arr[i] + " " + arr[j] + ") ");
+            }
+        }
+    }
+
+    public static void printSubarray(int arr[]) {
+        int lenght = arr.length;
+        for (int start = 0; start < lenght; start++) {
+            for (int end = start; end < lenght; end++) {
+                for (int current = start; current <= end; current++) {
+                    System.out.print(arr[current] + " ");
+                }
+                System.out.println();
             }
         }
     }
@@ -63,6 +75,7 @@ public class learningArray {
         // for(int num : arr){
         // System.out.println((num));
         // }
-        makePair(arr);
+        // makePair(arr);
+        printSubarray(arr);
     }
 }

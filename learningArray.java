@@ -83,6 +83,25 @@ public class learningArray {
         return isAscending || isDescending;
     }
 
+    // This function takes an array and prints the maximum sum of the sub array
+    public static void printSubarraySumMax(int arr[]) {
+        int length = arr.length;
+        int maxSum = Integer.MIN_VALUE;
+        for (int start = 0; start < length; start++) {
+            for (int end = start; end < length; end++) {
+                int currentSum = 0;
+                for (int current = start; current <= end; current++) {
+                    // System.out.print(arr[current]);
+                    currentSum += arr[current];
+                }
+                // System.out.println();
+                if (currentSum > maxSum)
+                    maxSum = currentSum;
+            }
+        }
+        System.out.println("The maximum sum of subarray is " + maxSum);
+    }
+
     public static void main(String[] args) {
         int arr[] = { 9,8,7,6,5,4 };
         // System.out.println(getLargest(arr));
@@ -93,6 +112,7 @@ public class learningArray {
         // }
         // makePair(arr);
         // printSubarray(arr);
-        System.out.println(isSorted(arr));
+        // System.out.println(isSorted(arr));
+        printSubarraySumMax(arr); 
     }
 }

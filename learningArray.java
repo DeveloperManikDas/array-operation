@@ -70,15 +70,17 @@ public class learningArray {
         System.out.println("Total number of Subarray is: " + totalSubarray);
     }
 
-    // We can check whether an array is sorted or not 
+    // We can check whether an array is sorted or not
     public static boolean isSorted(int arr[]) {
         boolean isAscending = true;
         boolean isDescending = true;
 
         for (int i = 0; i < (arr.length - 1); i++) {
-            if (arr[i] > arr[i + 1])isAscending =  false;
-            if (arr[i] < arr[i + 1])isDescending = false;
-        
+            if (arr[i] > arr[i + 1])
+                isAscending = false;
+            if (arr[i] < arr[i + 1])
+                isDescending = false;
+
         }
         return isAscending || isDescending;
     }
@@ -102,8 +104,35 @@ public class learningArray {
         System.out.println("The maximum sum of subarray is " + maxSum);
     }
 
+    // This function takes an array and prints the maximum sum of the sub array using prefix array
+    public static int printSubarraySumMaxUsingPrefix(int arr[]) {
+        int length = arr.length;
+
+        int prefix[] = new int[length];
+
+        prefix[0] = arr[0];
+        for (int i = 1; i < length; i++) {
+            prefix[i] = prefix[i - 1] + arr[i];
+        }
+
+        int maxSum = Integer.MIN_VALUE;
+
+        for (int start = 0; start < length; start++) {
+            for (int end = start; end < length; end++) {
+
+                int currentSum = start == 0 ? prefix[end] : prefix[end] - prefix[start - 1];
+                if (currentSum > maxSum) {
+                    maxSum = currentSum;
+                }
+            }
+        }
+        System.out.println("The max sum is "+maxSum);
+        return maxSum;
+
+    }
+
     public static void main(String[] args) {
-        int arr[] = { 9,8,7,6,5,4 };
+        int arr[] = { 9, 8, 7, 6, 5, 4 };
         // System.out.println(getLargest(arr));
         // System.out.println(binarySearch(arr, 100));
         // reverseArray(arr);
@@ -113,6 +142,7 @@ public class learningArray {
         // makePair(arr);
         // printSubarray(arr);
         // System.out.println(isSorted(arr));
-        printSubarraySumMax(arr); 
+        // printSubarraySumMax(arr);
+        // printSubarraySumMaxUsingPrefix(arr);
     }
 }

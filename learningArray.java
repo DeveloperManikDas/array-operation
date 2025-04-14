@@ -104,7 +104,8 @@ public class learningArray {
         System.out.println("The maximum sum of subarray is " + maxSum);
     }
 
-    // This function takes an array and prints the maximum sum of the sub array using prefix array
+    // This function takes an array and prints the maximum sum of the sub array
+    // using prefix array
     public static int printSubarraySumMaxUsingPrefix(int arr[]) {
         int length = arr.length;
 
@@ -126,13 +127,30 @@ public class learningArray {
                 }
             }
         }
-        System.out.println("The max sum is "+maxSum);
+        System.out.println("The max sum is " + maxSum);
         return maxSum;
 
     }
 
+    public static int kanane(int arr[]) {
+
+        int length = arr.length;
+        int mSum = Integer.MIN_VALUE;
+        int cSum = 0;
+
+        for (int i = 0; i < length; i++) {
+            cSum = cSum + arr[i];
+            mSum = Math.max(cSum, mSum);
+
+            if (cSum < 0) {
+                cSum = 0;
+            }
+        }
+        return mSum;
+    }
+
     public static void main(String[] args) {
-        int arr[] = { 9, 8, 7, 6, 5, 4 };
+        int arr[] = { -9, -8, -7, -6, -5, -4 };
         // System.out.println(getLargest(arr));
         // System.out.println(binarySearch(arr, 100));
         // reverseArray(arr);
@@ -144,5 +162,7 @@ public class learningArray {
         // System.out.println(isSorted(arr));
         // printSubarraySumMax(arr);
         // printSubarraySumMaxUsingPrefix(arr);
+        System.out.println(kanane(arr));
+
     }
 }

@@ -164,8 +164,23 @@ public class learningArray {
         return true;
     }
 
+    public static Set<Integer> getDuplicates(int arr[]) {
+
+        Set<Integer> numbers = new HashSet<>();
+        Set<Integer> duplicates = new HashSet<>();
+
+        for (int elm : arr) {
+            if (numbers.add(elm) == false) {
+                duplicates.add(elm);
+            }
+
+        }
+
+        return duplicates;
+    }
+
     public static void main(String[] args) {
-        int arr[] = { -9, -8, -7, -6, -5, -4, -4 };
+        int arr[] = { -9, -8, -7, 5, -7, -6, -5, -4, -4 };
         // System.out.println(getLargest(arr));
         // System.out.println(binarySearch(arr, 100));
         // reverseArray(arr);
@@ -179,6 +194,7 @@ public class learningArray {
         // printSubarraySumMaxUsingPrefix(arr);
         // System.out.println(kanane(arr));
         // System.out.print(hasUniqueElements(arr));
+        System.out.println(getDuplicates(arr));
 
     }
 }

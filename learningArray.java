@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class learningArray {
 
     public static int getLargest(int arr[]) {
@@ -149,8 +151,21 @@ public class learningArray {
         return mSum;
     }
 
+    public static boolean hasUniqueElements(int arr[]) {
+
+        Set<Integer> numbers = new HashSet<>();
+        for (int elm : arr) {
+
+            if (!numbers.add(elm)) {
+                return false;
+            }
+
+        }
+        return true;
+    }
+
     public static void main(String[] args) {
-        int arr[] = { -9, -8, -7, -6, -5, -4 };
+        int arr[] = { -9, -8, -7, -6, -5, -4, -4 };
         // System.out.println(getLargest(arr));
         // System.out.println(binarySearch(arr, 100));
         // reverseArray(arr);
@@ -162,7 +177,8 @@ public class learningArray {
         // System.out.println(isSorted(arr));
         // printSubarraySumMax(arr);
         // printSubarraySumMaxUsingPrefix(arr);
-        System.out.println(kanane(arr));
+        // System.out.println(kanane(arr));
+        // System.out.print(hasUniqueElements(arr));
 
     }
 }

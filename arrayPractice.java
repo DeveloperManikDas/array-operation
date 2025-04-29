@@ -7,7 +7,7 @@ public class arrayPractice {
 
     // largest in array
     public static int largestNum(int arr[]) {
-        
+
         if (arr == null || arr.length == 0) {
             throw new IllegalArgumentException("Array must not be empty");
         }
@@ -22,7 +22,30 @@ public class arrayPractice {
 
     }
 
+    // Binary search
+    public static int binarySearch(int arr[], int k) {
+        int start = 0;
+        int end = (arr.length) - 1;
+
+        while (start <= end) {
+            int mid = (start + end) / 2;
+
+            if (arr[mid] == k) {
+                return mid;
+            } else if (arr[mid] < k) {
+                start = mid + 1;
+            } else {
+                end = mid - 1;
+            }
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
-        print("Hello");
+        int myArray[] = { 1, 3, 4, 5, 7, 8, 10 };
+
+        // System.out.println(largestNum(myArray));
+        // System.out.println(binarySearch(myArray, 8));
+
     }
 }
